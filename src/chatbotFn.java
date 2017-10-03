@@ -113,16 +113,20 @@ public class chatbotFn {
 			"meal for one",
 			"television ads",
 			"deductions",
-			"parent"
+			"parent",
+			"Elvis",
+			"eleven plus two"
 		};
 		String[] anslist = {
 			"dormitory",
 			"for me alone",
 			"enslave idiots",
 			"discounted",
-			"entrap"
+			"entrap",
+			"lives",
+			"twelve plus one"
 		};
-		int ranN = ThreadLocalRandom.current().nextInt(/*min*/0, /*max*/4 + 1);
+		int ranN = ThreadLocalRandom.current().nextInt(/*min*/0, /*max*/6 + 1);
 		boolean quit=false;
 		System.out.println("");
 		System.out.println("THE WORD IS: "+puzzlelist[ranN]);
