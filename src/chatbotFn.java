@@ -12,6 +12,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class chatbotFn {
 
 	Chatterbot2 bot;
+	static final DateFormat day = new SimpleDateFormat("MM/dd/yyyy");
 	static final DateFormat time = new SimpleDateFormat("HH:mm:ss"); //yyyy/MM/dd HH:mm:ss = 2016/11/16 12:08:43
 	static final DateFormat greeting = new SimpleDateFormat("HH");
 	static int interval;
@@ -26,6 +27,11 @@ public class chatbotFn {
 		} else {
 			System.out.println("GOOD EVENING");
 		}
+	}
+	
+	public static void whatDay() {
+		Date date = new Date();
+		System.out.println("IT IS "+day.format(date));
 	}
 	
 	// reminder()+showReminder()
@@ -86,8 +92,20 @@ public class chatbotFn {
 	}
 	
 	public static void help() {
-		System.out.println("LIST FO FUNCTIONS: 'KNOCK KNOCK', 'WHAT TIME IS IT', 'REMIND ME', 'CALCULATE', 'COUNTDOWN', 'PLAY GAME'");
+		System.out.println("LIST FO FUNCTIONS: 'KNOCK KNOCK', 'WHAT TIME', 'WHAT DAY', 'REMIND ME', 'CALCULATE', 'COUNTDOWN', 'PLAY GAME', 'TELL ME A JOKE'");
 		System.out.print(">");
+	}
+	
+	public static void joke() {
+		String[] jokelist = {
+				"ARRAY START AT 1.",
+				"HOW MANY PROGRAMMER DOES IT TAKE TO CHANGE A LIGHT BLUB? NONE, ITS AN HARDWARE ISSUE.",
+				"YOUR MOTHER IS SO FAT, THE RECUSIVE FUNCTION CALCULATING HER MASS CAUSE A STACK OVERFLOW.",
+				" ; IS THE HIDE AND SEEK CHAMPION.",
+				"WHEN YOU DON'T HAVE TIME TO DEBUG, SELL IT AS FEATURES."
+		};
+		int ranN = ThreadLocalRandom.current().nextInt(/*min*/0, /*max*/4 + 1);
+		System.out.println(jokelist[ranN]);
 	}
 	
 	public static void gameSelector() throws Exception {

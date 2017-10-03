@@ -78,6 +78,8 @@ public class Chatterbot2 {
 				chatbotFn.reminder();
 			}  else if(sInput.toLowerCase().contains("what") && sInput.toLowerCase().contains("time")) {
 				chatbotFn.whatTime();
+			}  else if(sInput.toLowerCase().contains("what") && sInput.toLowerCase().contains("day")) {
+				chatbotFn.whatDay();
 			}  else if(sInput.equalsIgnoreCase("help")) {
 				chatbotFn.help();
 			}  else if(sInput.contains("+") || sInput.contains("*") || sInput.contains("-") || sInput.contains("/")) {
@@ -88,6 +90,8 @@ public class Chatterbot2 {
 				chatbotFn.countdown();
 			}  else if(sInput.toLowerCase().contains("play") && sInput.toLowerCase().contains("game")) {
 				chatbotFn.gameSelector();
+			}  else if(sInput.equalsIgnoreCase("tell me a joke")) {
+				chatbotFn.joke();
 			} else if(sResponse.length() == 0) {
 				System.out.println("I'M NOT SURE IF I UNDERSTAND WHAT YOU  ARE TALKING ABOUT.");
 			} else {
