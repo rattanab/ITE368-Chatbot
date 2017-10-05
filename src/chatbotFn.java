@@ -9,6 +9,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ThreadLocalRandom;
 
+import org.omg.Messaging.SyncScopeHelper;
+
 public class chatbotFn {
 
 	Chatterbot2 bot;
@@ -76,7 +78,7 @@ public class chatbotFn {
 	}
 	
 	public static void knockknock() throws Exception {
-		System.out.println("WHOSE THERE?");
+		System.out.println("WHO'S THERE?");
 		System.out.print(">");
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		String sInput = in.readLine();
@@ -92,18 +94,19 @@ public class chatbotFn {
 	}
 	
 	public static void help() {
-		System.out.println("LIST FO FUNCTIONS: 'KNOCK KNOCK', 'WHAT TIME', 'WHAT DAY', 'REMIND ME', 'CALCULATE', 'COUNTDOWN', 'PLAY GAME', 'TELL ME A JOKE'");
+		System.out.println("LIST OF FUNCTIONS: 'KNOCK KNOCK', 'WHAT TIME', 'WHAT DAY', 'REMIND ME', 'CALCULATE', 'COUNTDOWN', 'PLAY GAME', 'TELL ME A JOKE'");
 		System.out.print(">");
 	}
 	
 	public static void joke() {
 		String[] jokelist = {
-				"ARRAY START AT 1.",
-				"HOW MANY PROGRAMMER DOES IT TAKE TO CHANGE A LIGHT BLUB? NONE, ITS AN HARDWARE ISSUE.",
+				"ARRAY STARTS AT 1.",
+				"HOW MANY PROGRAMMER DOES IT TAKE TO CHANGE A LIGHT BLUB? NONE, ITS A HARDWARE ISSUE.",
 				"YOUR MOTHER IS SO FAT, THE RECUSIVE FUNCTION CALCULATING HER MASS CAUSE A STACK OVERFLOW.",
 				" ; IS THE HIDE AND SEEK CHAMPION.",
-				"WHEN YOU DON'T HAVE TIME TO DEBUG, SELL IT AS FEATURES."
-		};
+				"WHEN YOU DON'T HAVE TIME TO DEBUG, SELL IT AS A FEATURE.",
+				"HAS YOUR PROGRAM SHIPPED WITHOUT A BUG? NO WORRIES, THERE IS ALWAYS DLC ;)"
+						};
 		int ranN = ThreadLocalRandom.current().nextInt(/*min*/0, /*max*/4 + 1);
 		System.out.println(jokelist[ranN]);
 	}
@@ -111,6 +114,7 @@ public class chatbotFn {
 	public static void gameSelector() throws Exception {
 		System.out.println("1: ANAGRAM PUZZLE");
 		System.out.println("2: GUESS MY NUMBER");
+		System.out.println("3: 'WHAT DO YOU' GAME");
 		System.out.println("0: EXIT");
 		System.out.print(">");
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
@@ -119,6 +123,8 @@ public class chatbotFn {
 			gameAnagram();
 		} else if (nSelect==2) {
 			gameNumGuess();
+		} else if (nSelect==3){
+			gameWhatDoYouGet();
 		}
 		else {
 			System.out.println("EXITED");
@@ -127,22 +133,22 @@ public class chatbotFn {
 	
 	public static void gameAnagram() throws Exception {
 		String[] puzzlelist = {
-			"dirty room",
-			"meal for one",
-			"television ads",
-			"deductions",
-			"parent",
-			"Elvis",
-			"eleven plus two"
+			"DIRTY ROOM",
+			"MEAL FOR ONE",
+			"TELEVISION ADS",
+			"DEDUCTIONS",
+			"PARENT",
+			"ELVIS",
+			"ELEVEN PLUS TWO"
 		};
 		String[] anslist = {
-			"dormitory",
-			"for me alone",
-			"enslave idiots",
-			"discounted",
-			"entrap",
-			"lives",
-			"twelve plus one"
+			"DORMITORY",
+			"FOR ME ALONE",
+			"ENSLAVE IDIOTS",
+			"DISCOUNTED",
+			"ENTRAP",
+			"LIVES",
+			"TWELVE PLUS ONE"
 		};
 		int ranN = ThreadLocalRandom.current().nextInt(/*min*/0, /*max*/6 + 1);
 		boolean quit=false;
@@ -183,6 +189,38 @@ public class chatbotFn {
 			}
 		}
 	}
+	public static void gameWhatDoYouGet() throws Exception {
+		String [] TheWhat = {
+			" GIVE A SQUID TO KEEP HIM FROM BEING QUIET?",
+			" GET IF YOU CALL YOUR UFC TRAINED DENTIST OUT OF HOURS?",
+			" CALL A COW WHEN IT IS DRESSED UP FOR DINNER?",
+			" CALL A 2 x 4 PREGNANT PLANK OF WOOD?",
+			" GIVE A ROMAN SOLDIER WHO HOLDS UP TWO FINGERS AND ASKS FOR BEER?"
+		};
+		String [] TheLaugh = {
+			"TEN-TICKLES	^,^",
+			"TOOTH HURTY	^,^",
+			"UDDERLY RIDICULOUS		^,^",
+			"MOTHER BOARD	^,^",
+			"A PUNCH IN THE FACE! MY BEER!  *.*"		
+		};
+		int ranN = ThreadLocalRandom.current().nextInt(/*min*/0, /*max*/4 + 1);
+		boolean quit=false;
+		System.out.println("");
+		System.out.println("What do you"+ TheWhat[ranN]);
+		while(quit!=true) {
+			BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+			String ansInput = in.readLine();
+			if (ansInput.equalsIgnoreCase("What")) {
+				System.out.println(TheLaugh[ranN]);
+				quit=true;
+			}
+			else {
+				System.out.println("SAY 'WHAT'! DO YOU NOT GET JOKES?");
+				
+			}
+		}
+	}
 	
 	// calculate() = calculation()+multiplication()division()+subtraction+addition()
 	public static void calculate() {
@@ -190,8 +228,8 @@ public class chatbotFn {
         Scanner input = new Scanner(System.in);
         String[] a = new String[0];
         String eq = "";
-        System.out.println("Example: a+b-c*d/e");
-        System.out.print("Input equation: ");
+        System.out.println("EXAMPLE: a+b-c*d/e");
+        System.out.print("INPUT EQUATION: ");
         eq = input.next();
         a = eq.split("(?<=\\+)|(?=\\+)|(?<=-)|(?=-)|(?<=\\*)|(?=\\*)|(?<=/)|(?=/)");
         String[] b = new String[a.length];
