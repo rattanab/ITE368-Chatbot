@@ -29,7 +29,7 @@ public class Chatterbot2 {
 		},
 
 		{"ARE YOU INTELLIGENT", 
-		 "YES,OF CORSE."
+		 "YES,OF COURSE."
 		},
 		   
 		{"ARE YOU REAL", 
