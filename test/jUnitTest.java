@@ -61,6 +61,12 @@ public class jUnitTest {
 			{"THIS SENTENCE IS FALSE",
 			 "THIS CHATTERBOT2 IS TOO DUMB TO ANALYZE THE PARADOX."
 			},
+			
+			{"YES",
+			"OH, I SEE."},
+			
+			{"NO",
+			"AH, OK."}
 		};
 		return Arrays.asList(kb);
 	}

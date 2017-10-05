@@ -29,7 +29,7 @@ public class Chatterbot2 {
 		},
 
 		{"ARE YOU INTELLIGENT", 
-		 "YES,OFCORSE."
+		 "YES,OF CORSE."
 		},
 		   
 		{"ARE YOU REAL", 
@@ -47,6 +47,12 @@ public class Chatterbot2 {
 		{"THIS SENTENCE IS FALSE",
 		 "THIS CHATTERBOT2 IS TOO DUMB TO ANALYZE THE PARADOX."
 		},
+		
+		{"YES",
+		"OH, I SEE."},
+		
+		{"NO",
+		"AH, OK."}
 	};
 	
 	static String findMatch(String str) {
